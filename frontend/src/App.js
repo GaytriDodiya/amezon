@@ -1,5 +1,7 @@
 import react, { useState, useEffect } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import axios from 'axios'
+import HomeScreen from './screens/HomeScreen';
 
 function App() {
 
@@ -20,12 +22,12 @@ function App() {
 
   }, []);
   return (
-    products && (<div>
-      {products.map(product => (
-        <div key={product.slug}>{product.name}<img src={product.image} alt='products' width={300} /></div>
-      ))}
-    </div>)
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+      </Routes>
+    </BrowserRouter>)
+
 }
 
 export default App;
